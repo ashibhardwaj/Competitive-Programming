@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+int main()
+{
+	int s,count=0,sum=0,sum1=0;
+	cin>>s;
+	vector<int> v(s);
+	for(int i=0; i<s; i++)
+		cin>>v[i];
+	sort(v.begin(),v.end());
+	for(int i=0; i<s; i++)
+	{
+		sum+=v[i];
+	}
+
+	for(int i=s-1; i>=0; i--)
+	{
+		sum-=v[i];
+		count++;
+		sum1+=v[i];
+		if(sum1>sum)
+			break;
+	}
+	cout<<count<<endl;
+	return 0;
+}
