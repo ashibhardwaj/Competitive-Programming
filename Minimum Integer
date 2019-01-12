@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int q=0;
+    cin>>q;
+    for(int i=0; i<q; i++)
+    {
+        long long lrd[3];
+        for(int k=0; k<3; k++)
+            cin>>lrd[k];
+        if(lrd[0]>lrd[2] || lrd[1]<lrd[2])
+        {
+            cout<<lrd[2]<<endl;
+        }
+        else
+        {
+            for(long long j=2; ; j++)
+            {
+                if(j*lrd[2]>lrd[1])
+                {
+                    cout<<j*lrd[2]<<endl;
+                    break;
+                }
+            }
+        } 
+    }
+    return 0;
+}
