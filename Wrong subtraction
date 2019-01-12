@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a, b;
+	cin>>a>>b;
+	for(int j=1; j<=b; j++)
+	{
+		if(a%10!=0)
+			a--;
+		else
+			a/=10;
+	}
+	cout<<a;
+	return 0;
+}
