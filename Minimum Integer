@@ -16,15 +16,10 @@ int main()
         }
         else
         {
-            for(long long j=2; ; j++)
-            {
-                if(j*lrd[2]>lrd[1])
-                {
-                    cout<<j*lrd[2]<<endl;
-                    break;
-                }
-            }
-        } 
+            int mul=lrd[1]/lrd[2];
+            mul++;
+            cout<<mul*lrd[2]<<endl;
+        }
     }
     return 0;
 }
