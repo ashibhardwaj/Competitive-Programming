@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n,m=-1;
+    cin>>n;
+    int arr[n];
+    int arr1[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        if(arr[i]>m)
+            m=arr[i];
+    }
+    for(int i=0;i<n;i++)
+        cin>>arr1[i];
+    int temp[m+1];
+    for(int i=0;i<=m;i++)
+        temp[i]=0;
+        temp[arr[0]]=1;
+    for(int i=1;i<n;i++)
+        temp[arr[i]]=temp[arr[i-1]]+1;
+        int k=0;
+    for(int i=0;i<n;i++)
+    {
+        if(temp[arr1[i]]>k)
+        {
+            cout<<temp[arr1[i]]-k<<" ";
+            k=temp[arr1[i]];
+        }
+        else
+            cout<<0<<" ";
+    }
+    return 0;
+}
