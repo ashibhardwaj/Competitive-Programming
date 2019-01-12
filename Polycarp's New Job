@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);cin.tie();cout.tie();
+    long long n=0;
+    char a;
+    long long h, w, x=0, y=0, c, d, ymax=0, xmax=0;
+    cin>>n;
+    for(long long i=0; i<n; i++)
+    {
+        cin>>a;
+        if(a=='+')
+        {
+            cin>>c>>d;
+            if(c<=d)
+            {
+                x=c;
+                y=d;
+            }
+            else
+            {
+                x=d;
+                y=c;
+            }
+            if(x>xmax)
+                xmax=x;
+            if(y>ymax)
+                ymax=y;
+        }
+        if(a=='?')
+        {
+            cin>>c>>d;
+            if(c<=d)
+            {
+                h=c;
+                w=d;
+            }
+            else
+            {
+                h=d;
+                w=c;
+            }
+            if(h>=xmax && w>=ymax)
+                cout<<"YES"<<endl;
+            else
+                cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
