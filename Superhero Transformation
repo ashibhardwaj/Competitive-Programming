@@ -1,0 +1,35 @@
+#include<iostream>
+#include<algorithm>
+
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie();
+    cout.tie();
+    string s,t;
+    int flag=0;
+    cin>>s;
+    cin>>t;
+    int n1=s.length();
+    int n2=t.length();
+    if(n1!=n2)
+        cout<<"No";
+    else
+    {
+        for(int i=0; i<n1; i++)
+        {
+            if(((s[i]=='a' || s[i]=='e' ||s[i]=='i' ||s[i]=='o' ||s[i]=='u') && (t[i]=='b' || t[i]=='c' || t[i]=='d' || t[i]=='f' || t[i]=='g' || t[i]=='h' || t[i]=='j' || t[i]=='k' || t[i]=='l'|| t[i]=='m' || t[i]=='n' || t[i]=='p' || t[i]=='q' || t[i]=='r' || t[i]=='s' || t[i]=='t' || t[i]=='v' || t[i]=='w' || t[i]=='x' || t[i]=='y' || t[i]=='z')) || ((t[i]=='a' || t[i]=='e' || t[i]=='i' || t[i]=='o' || t[i]=='u') && (s[i]=='b' || s[i]=='c' || s[i]=='d' || s[i]=='f' || s[i]=='g' || s[i]=='h' || s[i]=='j' || s[i]=='k' || s[i]=='l'|| s[i]=='m' || s[i]=='n' || s[i]=='p' || s[i]=='q' || s[i]=='r' || s[i]=='s' || s[i]=='t' || s[i]=='v' || s[i]=='w' || s[i]=='x' || s[i]=='y' || s[i]=='z')))
+            {
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0)
+            cout<<"Yes";
+        else
+            cout<<"No";
+    }
+    return 0;
+}
