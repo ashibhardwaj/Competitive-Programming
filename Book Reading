@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long n,m;
+        cin>>n>>m;
+        long long sum=0, sum1=0;
+        long long num=n/m;
+        for(int i=1; i<=num%10; i++)
+        {
+            sum+=(m*i)%10;
+        }
+        for(int i=1; i<10; i++)
+        {
+            sum1+=(m*i)%10;
+        }
+        sum1*=num/10;
+        cout<<sum+sum1<<endl;
+    } 
+    return 0;
+}
