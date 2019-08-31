@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        vector <int> v(n);
+        for(int i=0; i<n; i++)
+        {
+            cin>>v[i];
+        }
+        int min1=v[n-1];
+        int count1=0;
+        for(int i=n-2; i>=0; i--)
+        {
+            if(min1<v[i])
+            count1++;
+            if(v[i]<min1)
+            min1=v[i];
+        }   
+        cout<<count1<<endl;   
+    } 
+    return 0;
+}
