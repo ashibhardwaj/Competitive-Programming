@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+ 
+long long maxSubArraySum(long long a[], long long size)
+{
+    long long max_so_far = a[0];
+    long long curr_max = a[0];
+    
+    for (long long i = 1; i < size; i++)
+    {
+        curr_max = max(a[i], curr_max+a[i]);
+        max_so_far = max(max_so_far, curr_max);
+    }
+    return max_so_far;
+}
+ 
+int main() {
+    // insert code here...
+    long long t, n, sum, s1, s2;
+    cin>>t;
+    while(t--)
+    {
+        sum=0;
+        cin>>n;
+        long long a[n];
+        long long b[n-1];
+        for(long long i=0; i<n; i++)
+        {
+            cin>>a[i];
+            sum+=a[i];
+        }
+        for(long long i=1; i<n; i++)
+        {
+            b[i-1]=a[i];
+        }
+        s1= maxSubArraySum(a,n-1);
+        s2= maxSubArraySum (b,n-1);
+        if(sum>s1 && sum>s2)
+            cout<<"YES"<<endl;
+        else
+            cout<<"NO"<<endl;
+    }
+    return 0;
+}
