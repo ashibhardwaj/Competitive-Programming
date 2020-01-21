@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ 
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		ll A,B;
+		cin>>A>>B;
+		ll temp=B;
+		ll cnt=0;
+		while(temp)
+		{
+		    temp/=10;
+		    cnt++;
+		}
+		while(pow(10,cnt)-1>B)
+		    cnt--;
+		cout<<A*cnt<<endl;
+	}
+}
