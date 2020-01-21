@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    // insert code here...
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long n, d;
+        cin>>n>>d;
+        if(d<=n)
+            cout<<"YES"<<endl;
+        else
+        {
+            if(pow(1-n,2)>=4*(d-n))
+            {
+                cout<<"YES"<<endl;
+            }
+            else
+                cout<<"NO"<<endl;
+        }
+    }
+    return 0;
+}
