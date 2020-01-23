@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	string s, a="";
+	cin>>s;
+	int flag=0;
+	int n=s.length();
+	if(s[0]>64 && s[0]<91) //caps
+		a+=(char)(s[0]+32);
+	else if(s[0]>96 && s[0]<123)
+		a+=(char)(s[0]-32);
+	for(int i=1; i<n; i++)
+	{
+		if(s[i]>64 && s[i]<91)
+			a+=(char)(s[i]+32);
+		else
+		{
+			flag++;
+			break;
+		}
+	}
+	if(n==1 && s[0]>96 && s[0]<123)
+		cout<<a;
+	else if(flag==0)
+		cout<<a;
+	else
+		cout<<s;
+}
