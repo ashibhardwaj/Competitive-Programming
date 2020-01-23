@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		long long a,b,c,n;
+		cin>>a>>b>>c>>n;
+		if((a+b+c+n)%3==0)
+		{	
+			long long temp=max(a,max(b,c));
+			temp=temp-a+temp-b+temp-c;
+			if(n>=temp && (n-temp)%3==0)
+				cout<<"YES"<<endl;
+      else
+				cout<<"NO"<<endl;
+    }
+		else
+			cout<<"NO"<<endl;
+	}
+}
