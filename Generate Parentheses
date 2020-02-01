@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector <string>ans;
+    void func(int n, string s, int o, int c)
+    {
+        if(n==o)
+        {
+           while(c<n)
+           {
+               s+=')';
+               c++;
+           }
+            ans.push_back(s);
+        }
+        else
+        {
+            func(n, s+'(', o+1, c);
+            if(c<o)
+            func(n, s+')', o, c+1);
+        }
+    }
+    vector<string> generateParenthesis(int n) {
+        string s="";
+        if(n==0)
+        {
+            ans.push_back(s);
+            return ans;
+        }
+        s+="(";
+        func(n, s, 1, 0);
+        return ans;
+    }
+};
