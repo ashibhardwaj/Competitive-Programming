@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+int a, b, c;
+vector <vector<int>>dp(4001, vector<int>(4001, -1));
+int f(int n, int cnt)
+{
+	if(n==0)
+		return cnt;
+	if(n<0)
+		return 0;
+	if(dp[n][cnt]!=-1)
+		return (dp[n][cnt]);
+	dp[n][cnt]=max(f(n-a,cnt+1),max(f(n-b, cnt+1),f(n-c, cnt+1)));
+	return (dp[n][cnt]);
+}
+int main() {
+	int n, cnt=0;
+	cin>>n>>a>>b>>c;
+	int ans=f(n, cnt);
+	cout<<ans;
+	return 0;
+}
