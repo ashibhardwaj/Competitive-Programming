@@ -1,0 +1,82 @@
+class Solution {
+public:
+    string decodeString(string s) {
+        if(s=="")
+        {
+            return s;
+        }
+        stack <int> t;
+        stack <string> w;
+        bool beg=1;
+        int dig=0;
+        string str="";
+        string decoded="";
+        string ans="";
+        for(int i=0; i<s.length(); i++)
+        {
+            if(s[i]-'0'<=9 && s[i]-'0'>=0)
+            {
+                if(beg)
+                {
+                    dig=s[i]-'0';
+                    beg=0;
+                }
+                else
+                {
+                    dig=dig*10+(s[i]-'0');
+                }
+            }
+            else if(s[i]=='[')
+            {
+                beg=1;
+                t.push(dig);
+                i++;
+                while(isalpha(s[i]))
+                {
+                    str+=s[i];
+                    i++;
+                }
+                i--;
+                w.push(str);
+                str="";
+            }
+            else if(s[i]==']')
+            {
+                int n=t.top();
+                t.pop();
+                string nn=w.top();
+                w.pop();
+                while(n--)
+                {
+                    decoded+=nn;
+                }
+                if(!w.empty())
+                {
+                    nn=w.top();
+                    w.pop();
+                    nn+=decoded;
+                    w.push(nn);
+                }
+                else
+                {
+                    ans+=decoded;
+                }
+                decoded="";
+            }
+            else
+            {
+                if(!w.empty())
+                {
+                    string nn=w.top();
+                    w.pop();
+                    nn+=s[i];
+                    w.push(nn);
+                }
+                else
+                    ans+=s[i];
+            }
+                
+        }
+        return ans;
+    }
+};
