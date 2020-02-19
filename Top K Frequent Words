@@ -1,0 +1,40 @@
+class Solution {
+public:
+    vector<string> topKFrequent(vector<string>& words, int k) {
+        int n=words.size();
+        map<string, int> m;
+        map<string, int>::iterator itr;
+        map<string, int>::iterator itr1;
+        vector<pair<int, string>> v;
+        vector<string> ans;
+        for(int i=0; i<n; i++)
+        {
+            m[words[i]]++;
+        }
+        // for(itr=m.begin(); itr!=m.end(); itr++)
+        // {
+        //     v.push_back(make_pair(itr->second, itr->first));
+        // }
+        // sort(v.begin(), v.end(), greater <>());
+        // for(int i=0; i<v.size(); i++)
+        //     cout<<v[i].second;
+        // int i=0;
+        while(k--)
+        {
+            int ma=0;
+            for(itr=m.begin(); itr!=m.end(); itr++)
+            {
+                if(itr->second>ma)
+                {
+                    ma=itr->second;
+                    itr1=itr;
+                }
+            }
+            ans.push_back(itr1->first);
+            m.erase(itr1->first);
+            // ans.push_back(v[i].second);
+            // i++;
+        }
+        return ans;
+    }
+};
