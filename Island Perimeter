@@ -1,0 +1,119 @@
+class Solution {
+public:
+    int islandPerimeter(vector<vector<int>>& grid) {
+        int n=grid.size();
+        if(n==0)
+            return 0;
+        int m=grid[0].size();
+        int p=0;
+        for(int i=0; i<n; i++)
+        {
+            for(int j=0; j<m; j++)
+            {
+                if(i>0 && j>0 && i<n-1 && j<m-1)
+                {
+                    if(grid[i][j]==1)
+                    {
+                        if(grid[i-1][j]==0)
+                            p++;
+                        if(grid[i+1][j]==0)
+                            p++;
+                        if(grid[i][j-1]==0)
+                            p++;
+                        if(grid[i][j+1]==0)
+                            p++;
+                    }
+                }
+                else if(i==0)
+                {
+                    if(grid[i][j]==1 && j==0)
+                    {
+                        p+=2;
+                        if(j+1>=m || grid[i][j+1]==0)
+                            p++;
+                        if(i+1>=n || grid[i+1][j]==0)
+                            p++;
+                    }
+                    else if(grid[i][j]==1 && j<m-1)
+                    {
+                        p++;
+                        if(grid[i][j-1]==0)
+                            p++;
+                        if(j+1>=m || grid[i][j+1]==0)
+                            p++;
+                        if(i+1>=n || grid[i+1][j]==0)
+                            p++;
+                    }
+                    else if(grid[i][j]==1 && j==m-1)
+                    {
+                        p+=2;
+                        if(grid[i][j-1]==0)
+                            p++;
+                        if(i+1>=n || grid[i+1][j]==0)
+                            p++;
+                    }
+                        
+                }
+                else if(i==n-1)
+                {
+                    if(grid[i][j]==1 && j==0)
+                    {
+                        p+=2;
+                        if(j+1>=m || grid[i][j+1]==0)
+                            p++;
+                        if(grid[i-1][j]==0)
+                            p++;
+                    }
+                    else if(grid[i][j]==1 && j<m-1)
+                    {
+                        p++;
+                        if(grid[i][j-1]==0)
+                            p++;
+                        if(j+1>=m || grid[i][j+1]==0)
+                            p++;
+                        if(grid[i-1][j]==0)
+                            p++;
+                    }
+                    else if(grid[i][j]==1 && j==m-1)
+                    {
+                        p+=2;
+                        if(grid[i][j-1]==0)
+                            p++;
+                        if(grid[i-1][j]==0)
+                            p++;
+                    }
+                        
+                }
+                else if(j==0)
+                {
+                    if(grid[i][j]==1 && i<n-1)
+                    {
+                        p++;
+                        if(grid[i-1][j]==0)
+                            p++;
+                        if(i+1>=n || grid[i+1][j]==0)
+                            p++;
+                        if(j+1>=m || grid[i][j+1]==0)
+                            p++;
+                    }   
+                    
+                }
+                else if(j==m-1)
+                {
+                    if(grid[i][j]==1 && i<n-1)
+                    {
+                        p++;
+                        if(grid[i-1][j]==0)
+                            p++;
+                        if(i+1>=n || grid[i+1][j]==0)
+                            p++;
+                        if(grid[i][j-1]==0)
+                            p++;
+                    }   
+                    
+                }
+            }
+        }
+        return p;
+    }
+};
