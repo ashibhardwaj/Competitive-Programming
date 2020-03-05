@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	string s;
+	cin>>s;
+	int n=s.length(), flag=0;
+	for(int i=0; i<n-1; i++)
+	{
+		if(s[i]=='A')
+		{
+			if(s[i+1]=='B')
+			{
+				i+=2;
+				while(i<n-1)
+				{
+					if(s[i]=='B')
+					{
+						if(s[i+1]=='A')
+							flag++;
+					}
+					i++;
+				}
+			}
+		}
+	}
+	for(int i=0; i<n-1; i++)
+	{
+		if(s[i]=='B')
+		{
+			if(s[i+1]=='A')
+			{
+				i+=2;
+				while(i<n-1)
+				{
+					if(s[i]=='A')
+					{
+						if(s[i+1]=='B')
+							flag++;
+					}
+					i++;
+				}
+			}
+		}
+	}
+	if(flag>0)
+		cout<<"YES";
+	else
+		cout<<"NO";
+	return 0;
+}
