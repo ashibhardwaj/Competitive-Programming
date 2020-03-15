@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	long long x;
+	while(t--)
+	{
+		cin>>x;
+		cout<<1<<" "<<x-1<<endl;
+	}
+	return 0;
+}
