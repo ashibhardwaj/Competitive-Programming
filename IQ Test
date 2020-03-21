@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n, e=0, o=0, anse, anso;
+	cin>>n;
+	int v[n];
+	for(int i=0; i<n; i++)
+	{
+		cin>>v[i];
+		if(v[i]%2==0)
+		{
+			anse=i+1;
+			e++;
+		}
+		else
+		{
+			anso=i+1;
+			o++;
+		}
+	}
+	if(e>o)
+	cout<<anso;
+	else
+	cout<<anse;
+	return 0;
+}
