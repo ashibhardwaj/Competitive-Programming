@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	string s;
+	cin>>s;
+    int q=0;
+    for (int i=1; i<s.length(); i++)
+    {
+        if (s[i]==s[i-1])
+            q++;
+        else
+            q=0;
+        if (q>=6)
+        {
+            cout << "YES";
+            return 0;
+        }
+    }
+    cout << "NO";
+	return 0;
+}
