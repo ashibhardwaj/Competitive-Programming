@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		set<pair<pair<int,int>, pair<int,int>>>m;
+		string s;
+		cin>>s;
+		int ans=0, i=0, j=0;
+		for(int x=0; x< s.length(); x++)
+		{
+			pair<int, int> p1=make_pair(i,j);
+			if(s[x]=='N')
+			{
+				i++;
+				pair<int, int> p2=make_pair(i,j);
+				if(m.find(make_pair(p1, p2))!=m.end())
+					ans+=1;
+				else
+					ans+=5;
+				m.insert(make_pair(p1, p2));
+				m.insert(make_pair(p2, p1));
+			}
+			else if(s[x]=='S')
+			{
+				i--;
+				pair<int, int> p2=make_pair(i,j);
+				if(m.find(make_pair(p1, p2))!=m.end())
+					ans+=1;
+				else
+					ans+=5;
+				m.insert(make_pair(p1, p2));
+				m.insert(make_pair(p2, p1));
+			}
+			else if(s[x]=='E')
+			{
+				j++;
+				pair<int, int> p2=make_pair(i,j);
+				if(m.find(make_pair(p1, p2))!=m.end())
+					ans+=1;
+				else
+					ans+=5;
+				m.insert(make_pair(p1, p2));
+				m.insert(make_pair(p2, p1));
+			}
+			else if(s[x]=='W')
+			{
+				j--;
+				pair<int, int> p2=make_pair(i,j);
+				if(m.find(make_pair(p1, p2))!=m.end())
+					ans+=1;
+				else
+					ans+=5;
+				m.insert(make_pair(p1, p2));
+				m.insert(make_pair(p2, p1));
+			}
+		}
+		cout<<ans<<endl;
+	}
+	return 0;
+}
