@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n, m, a, b;
+    cin>>n>>m>>a>>b;
+    long long t = m * a;
+    if(t <= b)
+        cout<<a*n;
+    else
+    {
+        temp = (n / m) * b;
+        cout<<temp + min((n - n / m * m) * a, b);
+    }
+}
