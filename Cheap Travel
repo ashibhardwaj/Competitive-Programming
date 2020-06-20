@@ -10,7 +10,7 @@ int main()
         cout<<a*n;
     else
     {
-        temp = (n / m) * b;
-        cout<<temp + min((n - n / m * m) * a, b);
+        t = (n / m) * b;
+        cout<<t + min((n - n / m * m) * a, b);
     }
 }
